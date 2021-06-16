@@ -1,0 +1,12 @@
+{
+  "name": "commis",
+  "displayName": "commis",
+  "expo": {
+    "name": "commis",
+    "slug": "commis",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
