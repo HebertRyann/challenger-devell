@@ -32,6 +32,7 @@ export const Input = styled.TextInput`
   padding: 5px;
   font-size: 13px;
   background: #fff;
+  font-family: 'Roboto_500Medium';
 `;
 
 export const Button = styled.TouchableOpacity`
@@ -84,6 +85,7 @@ export const ContainerPhoneInput = styled.View`
   width: 100%;
   align-items: center;
   flex-direction: row;
+  background: #fff;
 `;
 
 export const PrefixInput = styled.Text`

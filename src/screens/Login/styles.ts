@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { FontAwesome5 } from '@expo/vector-icons';
+import { BorderlessButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
   flex: 1;
@@ -19,14 +20,14 @@ export const Title = styled.Text`
 `;
 
 export const SubTitle = styled.Text`
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-size: 16.9px;
+  font-family: 'Roboto_700Bold';
 `;
 
 export const Complemetary = styled.Text`
-  font-size: 1rem;
-  font-weight: 400;
+  font-size: 13;
   margin-top: 5px;
+  font-family: 'Roboto_400Regular'; 
 `;
 
 export const Input = styled.TextInput`
@@ -35,6 +36,8 @@ export const Input = styled.TextInput`
   padding: 5px;
   font-size: 13px;
   background: #fff;
+  color: #9e9e9e;
+  font-family: 'Roboto_400Regular';
 `;
 
 export const Button = styled.TouchableOpacity`
@@ -46,7 +49,7 @@ export const Button = styled.TouchableOpacity`
   background: turquoise;
   font-size: 1.2rem;
   font-weight: 600;
-  color: #fff;
+  background: #3bbdb4;
 `;
 
 
@@ -55,6 +58,7 @@ export const TextOtherOption = styled.View`
   justify-content: center;
   flex-direction: row;
   align-items: center;
+  font-family: 'Exo_400Regular';
 `;
 export const TextOther = styled.Text`
   text-align: center;
@@ -62,12 +66,14 @@ export const TextOther = styled.Text`
   font-size: 13px;
   font-weight: 400;
   margin: 0 2px;
+
 `;
 
 export const ContainerSignUp = styled.View`
   flex-direction: row;
   align-items: center;
-
+  font-size: 13px;
+  font-family: 'Roboto_400Regular';
 `;
 
 export const TextSignUp = styled.Text``;
@@ -77,7 +83,10 @@ export const Link = styled.Text`
   color: turquoise;
 `;
 
-export const ContainerForgotPassword = styled.View``;
+export const ContainerForgotPassword = styled.View`
+  font-size: 13px;
+  font-family: 'Roboto_400Regular';
+`;
 
 export const ContentHeader = styled.View`
   flex: 1;
@@ -116,20 +125,29 @@ export const ButtonSocial = styled.TouchableOpacity`
   justify-content: space-around;
   align-items: center;
   height: 36px;
-  width: 170px;
+  width: 160px;
   border: 1px solid rgba(0,0,0,0.1);
   box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  background: #fff;
+
 `;
 
 export const ContainerButtonsSocial = styled.View`
   flex-direction: row;
-  justify-content: space-between;
   width: 100%;
+  justify-content: space-between;
+
 `;
 export const TextButton = styled.Text`
-  font-size: 13px;
-  font-weight: 400;
+  font-size: 14px;
+  font-family: 'Roboto_400Regular';
 `;
 
-export const Icon = styled(FontAwesome5)``;
+export const Icon = styled(FontAwesome5)`
+`;
+
+export const ContainerIcon = styled(BorderlessButton)`
+  margin-left: 25px;
+  margin-top: 20px;
+`;
 

@@ -11,7 +11,11 @@ export const Container = styled.View`
   margin-top: 19px;
 `;
 
-export const Title = styled.Text``;
+export const Title = styled.Text`
+  font-size: 13px;
+  color: #282c3f;
+  font-family: 'Roboto_400Regular';
+`;
 
 export const Arrow = styled.TouchableOpacity.attrs({
   activeOpacity: 0.7,
@@ -47,6 +51,7 @@ export const ContainerModalCategories = styled.View`
   box-shadow: 5px 10px 8px rgba(0,0,0, 0.2);
 `;
 export const TitleCategory = styled.Text`
+
 `;
 
 export const CategorySelect = styled.Text`
@@ -56,6 +61,9 @@ export const CategorySelect = styled.Text`
   justify-content: center;
   overflow: hidden;
   border-bottom: 1px solid #000;
+  font-family: 'Roboto_400Regular';
+  color: #575757;
+  font-size: 13px;
 `;
 export const Icon = styled(Feather)`
 `;

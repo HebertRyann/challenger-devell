@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { Routes } from './src/routes/app.routes';
+import Routes from './src/routes';
 import {
   useFonts,
   Roboto_400Regular,
@@ -26,8 +26,6 @@ export default function App() {
     Exo_700Bold,
   });
   return (
-    <NavigationContainer>
-      <Routes />
-    </NavigationContainer>
+    <Routes/>
   );
 };

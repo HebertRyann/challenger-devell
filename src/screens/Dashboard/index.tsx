@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import { ScrollView, FlatList } from 'react-native';
+import { ScrollView, FlatList, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import {
   Container,
   Header,
@@ -28,10 +29,12 @@ import {
   ContentDetails,
   TitleFood,
   TextPrice,
+  ContainerIcon,
 } from './styles';
 
 const Dashboard: React.FC = () => {
   const [isSelected, setIsSelected] = useState('buttonResult1');
+  const navigation = useNavigation();
   const toggleSelected = (id: string) => {
     setIsSelected(id);
   };
@@ -66,13 +69,19 @@ const Dashboard: React.FC = () => {
           <TextLocation>
             São Cristovão, N 16
           </TextLocation>
-          <Icon size={16} name="chevron-right" color="turquoise"/>
+          <ContainerIcon onPress={() => navigation.navigate('Delivery')}>
+            <Icon 
+              size={16} 
+              name="chevron-right" 
+              color="turquoise"
+            />
+          </ContainerIcon>
         </ContentInfo>
         
       </Header>
 
-      <ContainerInput>
-        <Input placeholder="Pesquisar restaurantes e itens..."/>
+      <ContainerInput >
+        <Input placeholder="Pesquisar restaurantes e itens..." />
         <Icon name="search" size={16}/>
       </ContainerInput>
 
@@ -196,4 +205,5 @@ const Dashboard: React.FC = () => {
     </Container>
   )
 };
+
 export { Dashboard };

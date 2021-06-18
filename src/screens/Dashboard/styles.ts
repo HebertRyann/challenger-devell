@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { Feather } from '@expo/vector-icons';
+import { BorderlessButton } from 'react-native-gesture-handler';
 
 interface IconProps {
   isSelected: boolean;
@@ -55,6 +56,8 @@ export const Input = styled.TextInput`
   font-size: 1.1rem;
   font-weight: 500;
 `;
+
+export const ContainerIcon = styled(BorderlessButton)``;
 
 export const Icon = styled(Feather)`
 `;

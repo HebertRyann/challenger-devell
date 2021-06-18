@@ -24,6 +24,7 @@ import {
   ContainerButtonsSocial,
   TextButton,
   Icon,
+  ContainerIcon,
 } from './styles';
 
 
@@ -37,12 +38,14 @@ const Login: React.FC = () => {
   return (
     <Container>
       <Header>
-      <Icon name="chevron-left" size={16}/>
+      <ContainerIcon onPress={() => {}}>
+        <Icon name="chevron-left" size={16}/>
+      </ContainerIcon>
         <ContentHeader>
           <Title>Commis</Title>
 
           <ContentDescription>
-            <SubTitle>Login</SubTitle>
+            <SubTitle>LOGIN</SubTitle>
             <Complemetary>Digite e-mail e senha</Complemetary>
           </ContentDescription>
         </ContentHeader>
@@ -62,7 +65,7 @@ const Login: React.FC = () => {
           />
         
         <Button>
-          <TextButton>Login</TextButton>
+          <TextButton style={{ color: '#fff'}}>LOGIN</TextButton>
         </Button>
       </ContainerForm>
 
@@ -82,7 +85,7 @@ const Login: React.FC = () => {
 
         <ContainerButtonsSocial>
           <ButtonSocial>
-            <Icon name="facebook" size={18} color="#4267B2"/>
+            <Icon name="facebook" size={18} color="#0066ff"/>
             <TextButton>Login com Facebook</TextButton>
           </ButtonSocial>
 
