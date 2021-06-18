@@ -17,7 +17,9 @@ import {
   ButtonSelectLocation,
   TextButton,
   TextComplementary,
+  ContainerIcon,
 } from './styles';
+import { useNavigation } from "@react-navigation/native";
 
 interface LocationProps {
   title?: string;
@@ -36,6 +38,7 @@ const locations = [
 ]
 
 const Delivery: React.FC = () => {
+  const navigation = useNavigation();
   const [location, setLocation] = useState<LocationProps>({
     latitude: 0,
     longitude: 0
@@ -69,12 +72,16 @@ const Delivery: React.FC = () => {
   return (
     <Container>
       <Header>
-        <Icon name="chevron-left" size={24} color="#bdbdbd"/>
+        <ContainerIcon onPress={() => navigation.goBack()}>
+          <Icon name="chevron-left" size={24} color="#bdbdbd"/>
+        </ContainerIcon>
+          
         <Input 
           placeholder="Pesquise sua área..." 
           onChangeText={(text) => setInputLocationValue(text)}
           value={inputLocationValue}
           onTouchStart={toggleModalSearch}
+          style={{ outline: 'none' }}
         />
 
         {/* <GooglePlacesAutocomplete

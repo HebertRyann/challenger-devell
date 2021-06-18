@@ -14,6 +14,7 @@ import {
   Exo_600SemiBold,
   Exo_700Bold,
 } from '@expo-google-fonts/exo';
+import { AuthProvider } from './src/hooks/Auth';
 
 export default function App() {
  useFonts({
@@ -26,6 +27,8 @@ export default function App() {
     Exo_700Bold,
   });
   return (
-    <Routes/>
+    <AuthProvider>
+      <Routes/>
+    </AuthProvider>
   );
 };

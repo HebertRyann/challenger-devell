@@ -59,17 +59,19 @@ const Dashboard: React.FC = () => {
     { id: '19', name: 'Insano Burguer'},
     { id: '20', name: 'Meet Burguer'},
   ]
-  return (
+  return (  
     <Container>
       <Header>
         <Title>
           Commis
         </Title>
         <ContentInfo>
-          <TextLocation>
-            São Cristovão, N 16
-          </TextLocation>
-          <ContainerIcon onPress={() => navigation.navigate('Delivery')}>
+          <ContainerIcon onPress={() => navigation.navigate('delivery')}>
+            <TextLocation>
+              São Cristovão, N 16
+            </TextLocation>
+          </ContainerIcon>
+          <ContainerIcon onPress={() => navigation.navigate('delivery')}>
             <Icon 
               size={16} 
               name="chevron-right" 

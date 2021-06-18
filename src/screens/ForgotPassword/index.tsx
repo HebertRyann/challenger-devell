@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {
   Container,
@@ -14,13 +15,18 @@ import {
   Icon,
   ButtonIHave,
   TextIHaveButton,
+  ContainerIcon,
 } from './styles';
 
 const ForgotPassword: React.FC = () => {
+  const navigation = useNavigation();
   return (
     <Container>
       <Header>
-      <Icon name="chevron-left" size={16}/>
+      <ContainerIcon onPress={() => navigation.goBack()}>
+        <Icon name="chevron-left" size={16}/>
+      </ContainerIcon>
+      
         <ContentHeader>
           <Title>Commis</Title>
 
@@ -35,7 +41,8 @@ const ForgotPassword: React.FC = () => {
       <ContainerForm>
           <Input 
             placeholder="E-mail" 
-            selectionColor="#000" 
+            selectionColor="#000"
+            style={{ outline: 'none'}}
           />
         
         <Button>

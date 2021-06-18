@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { Feather } from '@expo/vector-icons';
+import { BorderlessButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
   flex: 1;
@@ -17,6 +18,7 @@ export const Header = styled.View`
 `;
 
 export const Icon = styled(Feather)``;
+export const ContainerIcon = styled(BorderlessButton)``;
 
 export const Input = styled.TextInput`
   width: 80%;

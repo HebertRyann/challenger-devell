@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
+import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
+import { useForm } from 'react-hook-form';
+import { InputForm } from '../../components/InputForm';
 import {
   Container,
   Header,
@@ -26,19 +30,39 @@ import {
   Icon,
   ContainerIcon,
 } from './styles';
+import useAuth from '../../hooks/Auth';
 
+interface UsersProps {
+  name: string
+  email: string
+  password: string
+  phone: string
+}
+interface FormDataProps {
+  email: string
+  password: string
+}
 
 const Login: React.FC = () => {
+  const { control, handleSubmit } = useForm();
+  const { user } = useAuth();
+  const navigation = useNavigation();
   const [isInputFocus, setIsInputFocus] = useState(false);
 
-  const toggleFocusInput = () => {
-    setIsInputFocus(!isInputFocus);
-  };
+
+
+  function handleLogin(form: FormDataProps) {
+    if(user.email === form.email) {
+      navigation.navigate('account');
+      return;
+    };
+    alert('Usuario não existe');
+  }
 
   return (
     <Container>
       <Header>
-      <ContainerIcon onPress={() => {}}>
+      <ContainerIcon onPress={() => navigation.goBack()}>
         <Icon name="chevron-left" size={16}/>
       </ContainerIcon>
         <ContentHeader>
@@ -53,18 +77,18 @@ const Login: React.FC = () => {
       </Header>
 
       <ContainerForm>
-          <Input 
+          <InputForm 
+            control={control}
+            name="email"
             placeholder="E-mail" 
-            selectionColor="#000" 
-            underlineColorAndroid={isInputFocus ? '#000' : '#cbcbcb'}
           />
-          <Input 
+          <InputForm
+            control={control}
+            name="password" 
             placeholder="Senha" 
-            selectionColor="#000" 
-            underlineColorAndroid={isInputFocus ? '#000' : '#cbcbcb'}
           />
         
-        <Button>
+        <Button onPress={handleSubmit(handleLogin)}>
           <TextButton style={{ color: '#fff'}}>LOGIN</TextButton>
         </Button>
       </ContainerForm>
@@ -98,13 +122,13 @@ const Login: React.FC = () => {
         <ContainerSignUp>
 
           <TextSignUp>Ainda não tem cadastro?</TextSignUp>
-          <Link>Registrar</Link>
+          <Link onPress={() => navigation.navigate('signup')}>Registrar</Link>
 
         </ContainerSignUp>
 
         <ContainerForgotPassword>
 
-          <Link>Esqueci minha Senha?</Link>
+          <Link onPress={() => navigation.navigate('forgot')}>Esqueci minha Senha?</Link>
           
         </ContainerForgotPassword>
       </Footer>

@@ -1,3 +1,4 @@
+import { BorderlessButton } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 
 export const Container = styled.SafeAreaView`
@@ -55,6 +56,6 @@ export const ChangeLanguage = styled.Text`
   margin-top: 19px;
 `;
 
-export const Link = styled.Text`
+export const Link = styled.TouchableOpacity`
   color: #3bbdb4;
 `;

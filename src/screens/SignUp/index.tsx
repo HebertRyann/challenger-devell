@@ -1,5 +1,8 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { useState } from 'react';
+import { InputForm } from '../../components/InputForm';
+import { useForm } from 'react-hook-form';
 import {
   Container,
   Header,
@@ -15,10 +18,29 @@ import {
   Icon,
   ContainerPhoneInput,
   PrefixInput,
+  ContainerIcon,
 } from './styles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+interface FormDataProps {
+  name: string;
+  email: string;
+  phone: string;
+  senha: string;
+}
 
 const SignUp: React.FC = () => {
+  const navigation = useNavigation();
+  const { control, handleSubmit } = useForm();
   const [isInputFocus, setIsInputFocus] = useState(false);
+
+  async function handleCreateUser(formData: FormDataProps) {
+    try {
+      await AsyncStorage.setItem('@Commis:SignUp', JSON.stringify(formData))
+    } catch (error) {
+      throw new Error('Async storaged error');
+    }
+  };
 
   const toggleFocusInput = () => {
     setIsInputFocus(!isInputFocus);
@@ -26,7 +48,9 @@ const SignUp: React.FC = () => {
   return (
     <Container>
       <Header>
-        <Icon name="chevron-left" size={16}/>
+        <ContainerIcon onPress={() => navigation.goBack()}>
+          <Icon name="chevron-left" size={16}/>
+        </ContainerIcon>
         <ContentHeader>
           <Title>Commis</Title>
 
@@ -39,33 +63,35 @@ const SignUp: React.FC = () => {
       </Header>
 
       <ContainerForm>
-          <Input 
-            placeholder="Nome" 
-            selectionColor="#000" 
-            underlineColorAndroid={isInputFocus ? '#000' : '#cbcbcb'}
+          <InputForm
+            control={control}
+            name="name"
+            placeholder="Nome"
           />
-          <Input 
-            placeholder="Email" 
-            selectionColor="#000" 
-            underlineColorAndroid={isInputFocus ? '#000' : '#cbcbcb'}
+          <InputForm 
+            name="email"
+            placeholder="E-mail"
+            control={control}
           />
           <ContainerPhoneInput>
             <PrefixInput>+55</PrefixInput>
-            <Input 
-              placeholder="Número" 
+            <InputForm 
+              control={control}
+              name="phone" 
+              placeholder="Número"
               selectionColor="#000"
               keyboardType={"phone-pad" || "name-phone-pad"}
               textContentType="telephoneNumber"
-              underlineColorAndroid="transparent"
             />
           </ContainerPhoneInput>
-          <Input 
-            placeholder="Senha" 
-            selectionColor="#000" 
-            underlineColorAndroid={isInputFocus ? '#000' : '#cbcbcb'}
+          <InputForm 
+            control={control}
+            name="password"
+            placeholder="Senha"
+            secureTextEntry
           />
         
-        <Button>
+        <Button onPress={handleSubmit(handleCreateUser)}>
           <TextButton>Registrar</TextButton>
         </Button>
       </ContainerForm>

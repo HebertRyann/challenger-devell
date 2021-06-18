@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { FontAwesome5 } from '@expo/vector-icons';
+import { BorderlessButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
   flex: 1;
@@ -94,5 +95,10 @@ export const TextIHaveButton = styled.Text`
   font-size: 13px;
   font-weight: 500;
   color: #9e9e9e;
+`;
+
+export const ContainerIcon = styled(BorderlessButton)`
+  margin-left: 25px;
+  margin-top: 20px;
 `;
 

@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { FontAwesome5 } from '@expo/vector-icons';
+import { BorderlessButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
   flex: 1;
@@ -91,4 +92,9 @@ export const ContainerPhoneInput = styled.View`
 export const PrefixInput = styled.Text`
   font-size: 13px;
   font-weight: 400;
+`;
+
+export const ContainerIcon = styled(BorderlessButton)`
+  margin-left: 10px;
+  margin-top: 10px;
 `;
