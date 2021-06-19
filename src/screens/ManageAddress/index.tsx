@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { useState } from "react";
 
@@ -20,10 +21,11 @@ import {
 
 const ManageAddress: React.FC = () => {
   const [address, setAddress] = useState(['1','2','3']);
+  const navigation = useNavigation()
   return (
     <Container>
       <Header>
-        <ContainerIcon>
+        <ContainerIcon onPress={() => navigation.goBack()}>
           <IconFe size={20} name="chevron-left" />
         </ContainerIcon>
         
@@ -31,7 +33,7 @@ const ManageAddress: React.FC = () => {
           GERENCIAR ENDEREÇOS
         </TitleHeader>
 
-        <ContainerIcon>
+        <ContainerIcon onPress={() => navigation.navigate('início')}>
           <IconFe size={20} name="home" />
         </ContainerIcon>
 
@@ -54,7 +56,7 @@ const ManageAddress: React.FC = () => {
         )}
       </ContainerAddress>
 
-      <Button>
+      <Button onPress={() => navigation.navigate('delivery')}>
         <TextButton>NOVO ENDEREÇO</TextButton>
       </Button>
     </Container>

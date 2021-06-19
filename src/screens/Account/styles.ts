@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { Feather, FontAwesome5,  } from '@expo/vector-icons';
+import { Feather, FontAwesome5, SimpleLineIcons } from '@expo/vector-icons';
 import Animated from 'react-native-reanimated';
 import { BorderlessButton } from 'react-native-gesture-handler';
 
@@ -10,6 +10,7 @@ export const Container = styled.View`
 export const IconFe = styled(Feather)``;
 
 export const IconFa = styled(FontAwesome5)``;
+export const IconSl = styled(SimpleLineIcons)``;
 
 export const ContainerProfile = styled.View`
   width: 100%;

@@ -151,3 +151,16 @@ export const ContainerIcon = styled(BorderlessButton)`
   margin-top: 20px;
 `;
 
+export const ContainerInput = styled.View`
+  width: 100%;
+`;
+
+export const Label = styled.View`
+  text-align: left;
+  width: 100%;
+  font-family: 'Roboto_500Medium';
+  color: #575757;
+  font-size: 13px;
+`;
+
+

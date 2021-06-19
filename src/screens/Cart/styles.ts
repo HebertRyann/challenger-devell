@@ -17,7 +17,11 @@ export const Header = styled.View`
 
 export const IconFe = styled(Feather)``;
 
-export const TitleHeader = styled.View``;
+export const TitleHeader = styled.View`
+  font-size: 13px;
+  font-family: 'Roboto_500Medium';
+  color: #575757;
+`;
 
 export const ContainerEmpty = styled.View`
   align-items: center;

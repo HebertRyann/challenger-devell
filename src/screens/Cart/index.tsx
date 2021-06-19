@@ -28,10 +28,7 @@ interface CartProps {
 
 const Cart: React.FC = () => {
   const navigation = useNavigation();
-  const [cart, setCart] = useState<CartProps[]>([
-    { id: '1', name: 'jogo', price: 5000  },
-    { id: '2', name: 'jogo2', price: 10000  },
-  ]);
+  const [cart, setCart] = useState<CartProps[]>([]);
   return (
     <Container>
       <Header>
@@ -51,7 +48,7 @@ const Cart: React.FC = () => {
 
       {cart.length <= 1 ? (
         <ContainerEmpty>
-          <Icon name="sad-tear" size={150}/>
+          <IconFe name="frown" size={150}/>
           <TextCart>Seu carrinho está vazio</TextCart>
         </ContainerEmpty>
       ) : (

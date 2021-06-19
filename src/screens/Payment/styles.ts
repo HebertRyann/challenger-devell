@@ -61,7 +61,31 @@ export const ContentPayment = styled.View`
   color: #000;
   font-family: 'Roboto_500Medium';
   font-size: 13;
+  margin-bottom: 50px;
 `;
+
+export const Footer = styled.View`
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const NumberCard = styled.Text``;
+
+export const Expiry = styled.Text``;
+
+export const UserName = styled.Text``;
+
+export const WrapperPayment = styled.View`
+  width: 100%;
+  background: #fff;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  border-radius: 3px;
+  height: 64px;
+  padding: 5px 20px;
+  justify-content: space-between;
+`;
+
 
 
 

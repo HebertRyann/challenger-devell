@@ -1,6 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { useState } from "react";
+import useAuth from "../../hooks/Auth";
 
 import {
   Container,
@@ -13,10 +14,15 @@ import {
   Button,
   Title,
   ContentPayment,
+  Footer,
+  NumberCard,
+  Expiry,
+  UserName,
+  WrapperPayment,
 } from './styles';
 
 const Payment: React.FC = () => {
-  const [payments, setPayments] = useState(['pix']);
+  const { payments } = useAuth();
   const navigation = useNavigation()
   return (
     <Container>
@@ -39,6 +45,18 @@ const Payment: React.FC = () => {
         <ContentPayment>
           <Title>Pagar com PIX</Title>
         </ContentPayment>
+        {payments.map(item => (
+          <WrapperPayment>
+            <UserName>{item.name}</UserName>
+            <Footer>
+              <NumberCard>
+                {item.card.number.split('')
+                .map((item, index) => index > 11 ? item : '*')}
+              </NumberCard>
+              <Expiry>{item.card.expiry}</Expiry>
+            </Footer>
+          </WrapperPayment>
+        ))}
       </ContainerPayments>
 
       <Button onPress={() => navigation.navigate('addPayment')}>ADICIONAR NOVO CARTÂO</Button>

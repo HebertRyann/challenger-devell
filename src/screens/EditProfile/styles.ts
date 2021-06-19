@@ -5,6 +5,7 @@ import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
   flex: 1;
+  background: #f8f9fa;
 `;
 
 export const Header = styled.View`
@@ -20,7 +21,7 @@ export const Header = styled.View`
   font-family: 'Roboto_500Medium';
 `;
 
-export const TitleHeader = styled.View`
+export const TitleHeader = styled.Text`
 `;
 
 export const Input = styled.TextInput`
@@ -29,7 +30,7 @@ export const Input = styled.TextInput`
   padding: 0 10px;
 `;
 
-export const Button = styled(RectButton)`
+export const Button = styled.TouchableOpacity`
   justify-content: center;
   height: 52px;
   color: #fff;
@@ -47,9 +48,10 @@ export const ContainerForm = styled.View`
   padding: 0 30px;
 `;
 
-export const TextButton = styled.View`
+export const TextButton = styled.Text`
   font-size: 15.6px;
   font-family: 'Roboto_500Medium';
+  color: #fff;
 `;
 
 export const Label = styled.Text`

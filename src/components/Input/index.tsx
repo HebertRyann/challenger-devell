@@ -6,12 +6,11 @@ import {
 } from './styles';
 
 interface InputProps extends TextInputProps{
-
 }
 
-const Input: React.FC<InputProps> = ({ ...rest }) => {
+const Input: React.FC<InputProps> = ({ style,...rest }) => {
   return (
-    <Container {...rest} style={{ outline: 'none' }}/>
+    <Container {...rest} style={[style, {   outline: 'none' }]}/>
   )
 };
 export { Input };

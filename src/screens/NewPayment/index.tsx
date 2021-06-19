@@ -19,42 +19,18 @@ import {
   Label,
   Input,
 } from './styles';
+import { InputForm } from "../../components/InputForm";
+import { useForm } from "react-hook-form";
+import useAuth, { User } from "../../hooks/Auth";
 
 const NewPayment: React.FC = () => {
+  const { control, handleSubmit } = useForm();
   const navigation = useNavigation();
-  const [cardNumber, setCardNumber] = useState('');
-  const [cardExpiry, setCardExpiry] = useState('');
-  const [cardCVC, setCardCVC] = useState('');
-  const [userName, setUserName] = useState('');
-  const [userEmail, setUserEmail] = useState('');
-  const [userPhone, setUserPhone] = useState('');
-  const [payments, setPayments] = useState({
-    name: userName,
-    email: userEmail,
-    phone: userPhone,
-    card: {
-      number: cardNumber,
-      expiry: cardExpiry,
-      cvc: cardCVC,
-    },
-  });
+  const { generateCard } = useAuth();
 
-  async function handleSubmitPayment() {
-    setPayments({
-      name: userName,
-      email: userEmail,
-      phone: userPhone,
-      card: {
-        number: cardNumber,
-        expiry: cardExpiry,
-        cvc: cardCVC,
-      },
-    });
-    try {
-      await AsyncStorage.setItem('@Commis:Payment', JSON.stringify(payments));
-    } catch (error) {
-      console.log(error);
-    }
+  async function handleSubmitPayment(formdata: User) {
+    generateCard(formdata);
+    navigation.goBack();
   }
   useEffect(() => {
     if (
@@ -84,7 +60,10 @@ const NewPayment: React.FC = () => {
       <ContainerPayments>
         <ContainerInput>
           <Label>Nome</Label>
-          <Input onChangeText={(text) => setUserName(text)}/>
+          <InputForm 
+            control={control}
+            name="name"
+          />
         </ContainerInput>
         <ContainerInput style={{ 
           borderTopColor: '#e3e3e3',
@@ -94,11 +73,18 @@ const NewPayment: React.FC = () => {
 
         }}>
           <Label>E-mail</Label>
-          <Input onChangeText={(text) => setUserEmail(text)}/>
+          <InputForm 
+            control={control}
+            name="email"
+          />
         </ContainerInput>
+
         <ContainerInput>
           <Label>Telefone</Label>
-          <Input onChangeText={(text) => setUserPhone(text)}/>
+          <InputForm 
+          control={control}
+          name="phone"
+          />
         </ContainerInput>
       </ContainerPayments>
 
@@ -122,7 +108,7 @@ const NewPayment: React.FC = () => {
      }}
      />
 
-      <Button onPress={handleSubmitPayment}>SALVAR CARTÂO</Button>
+      <Button onPress={handleSubmit(handleSubmitPayment)}>SALVAR CARTÂO</Button>
     </Container>
   );
 };

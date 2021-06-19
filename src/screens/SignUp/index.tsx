@@ -21,6 +21,7 @@ import {
   ContainerIcon,
 } from './styles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Label } from '../Login/styles';
 
 interface FormDataProps {
   name: string;
@@ -37,6 +38,7 @@ const SignUp: React.FC = () => {
   async function handleCreateUser(formData: FormDataProps) {
     try {
       await AsyncStorage.setItem('@Commis:SignUp', JSON.stringify(formData))
+      navigation.navigate('dashboard')
     } catch (error) {
       throw new Error('Async storaged error');
     }
@@ -63,19 +65,25 @@ const SignUp: React.FC = () => {
       </Header>
 
       <ContainerForm>
+          <Label>Nome</Label>
           <InputForm
             control={control}
             name="name"
             placeholder="Nome"
+            style={{ borderBottomColor: '#575757', borderBottomWidth: 1}}
           />
+          <Label>E-mail</Label>
           <InputForm 
             name="email"
             placeholder="E-mail"
             control={control}
+            style={{ borderBottomColor: '#575757', borderBottomWidth: 1}}
           />
-          <ContainerPhoneInput>
-            <PrefixInput>+55</PrefixInput>
+          <Label>Número</Label>
+          <ContainerPhoneInput style={{ borderBottomColor: '#575757', borderBottomWidth: 1}}>
+            <PrefixInput>+55 </PrefixInput>
             <InputForm 
+            
               control={control}
               name="phone" 
               placeholder="Número"
@@ -85,6 +93,7 @@ const SignUp: React.FC = () => {
             />
           </ContainerPhoneInput>
           <InputForm 
+          style={{ borderBottomColor: '#575757', borderBottomWidth: 1}}
             control={control}
             name="password"
             placeholder="Senha"

@@ -86,7 +86,6 @@ export const ContainerPhoneInput = styled.View`
   width: 100%;
   align-items: center;
   flex-direction: row;
-  background: #fff;
 `;
 
 export const PrefixInput = styled.Text`

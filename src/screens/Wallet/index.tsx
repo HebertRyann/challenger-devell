@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { useState } from "react";
 
@@ -19,10 +20,11 @@ import {
 
 const Wallet: React.FC = () => {
   const [trasaction, setTrasaction] = useState([]);
+  const navigation = useNavigation();
   return (
     <Container>
       <Header>
-        <ContainerIcon >
+        <ContainerIcon onPress={() => navigation.goBack()}>
           <IconFe size={20} name="chevron-left" />
         </ContainerIcon>
         

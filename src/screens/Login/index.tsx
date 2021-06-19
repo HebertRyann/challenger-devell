@@ -29,6 +29,8 @@ import {
   TextButton,
   Icon,
   ContainerIcon,
+  ContainerInput,
+  Label,
 } from './styles';
 import useAuth from '../../hooks/Auth';
 
@@ -77,16 +79,22 @@ const Login: React.FC = () => {
       </Header>
 
       <ContainerForm>
-          <InputForm 
-            control={control}
-            name="email"
-            placeholder="E-mail" 
-          />
-          <InputForm
-            control={control}
-            name="password" 
-            placeholder="Senha" 
-          />
+          <ContainerInput>
+            <Label>E-mail</Label>
+            <InputForm 
+              control={control}
+              name="email"
+              style={{ borderBottomColor: '#575757', borderBottomWidth: 1}}
+            />
+          </ContainerInput>
+          <ContainerInput>
+            <Label>Senha</Label>
+            <InputForm 
+              control={control}
+              name="password"
+              style={{ borderBottomColor: '#575757', borderBottomWidth: 1}}
+            />
+          </ContainerInput>
         
         <Button onPress={handleSubmit(handleLogin)}>
           <TextButton style={{ color: '#fff'}}>LOGIN</TextButton>

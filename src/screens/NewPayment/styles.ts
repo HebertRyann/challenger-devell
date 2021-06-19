@@ -44,7 +44,7 @@ export const ContainerPayments = styled.View`
   background: #fff;
 `;
 
-export const Button = styled(RectButton)`
+export const Button = styled.TouchableOpacity`
   height: 60px;
   background: #3bbdb4;
   justify-content: center;

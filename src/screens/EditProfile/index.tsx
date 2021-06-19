@@ -1,6 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-
+import { useForm } from "react-hook-form";
+import { InputForm } from '../../components/InputForm';
+import useAuth from "../../hooks/Auth";
 import {
   Container,
   Button,
@@ -17,6 +19,8 @@ import {
 
 const EditProfile: React.FC = () => {
   const navigation = useNavigation();
+  const { control, handleSubmit } = useForm();
+  const { updateUser, user } = useAuth();
   return (
     <Container>
       <Header>
@@ -37,25 +41,56 @@ const EditProfile: React.FC = () => {
       <ContainerForm>
         <ContainerInput>
           <Label>Nome</Label>
-          <Input defaultValue="Hebert" style={{ outline: 'none' }}/>
+          <InputForm 
+            name="name"
+            control={control}
+            defaultValue={user.name}
+            style={{
+              backgroundColor: '#ffffff',
+              paddingLeft: 10,              
+            }}
+          />
         </ContainerInput>
 
         <ContainerInput>
           <Label>E-mail</Label>
-          <Input  defaultValue="hebert@gmail.com.br"/>
+          <InputForm  
+            control={control}
+            name="email"
+            defaultValue={user.email}
+            style={{
+              backgroundColor: '#ffffff',
+              paddingLeft: 10,              
+            }}
+          />
         </ContainerInput>
 
         <ContainerInput>
           <Label>Telefone</Label>
-          <Input defaultValue="+5571912345678"/>
+          <InputForm  
+            control={control} 
+            defaultValue={user.phone}
+            name="phone"
+            style={{
+              backgroundColor: '#ffffff',
+              paddingLeft: 10,              
+            }}
+          />
         </ContainerInput>
 
         <ContainerInput>
           <Label>Senha</Label>
-          <Input />
+          <InputForm 
+            control={control}
+            name="password"
+            style={{
+              backgroundColor: '#ffffff',
+              paddingLeft: 10,              
+            }}
+          />
         </ContainerInput>
 
-        <Button>
+        <Button onPress={handleSubmit(updateUser)}>
           <TextButton>ALTERAR</TextButton>
         </Button>
 

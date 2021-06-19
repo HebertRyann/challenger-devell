@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native"
 import { useEffect } from "react";
 import MapView from "react-native-maps";
 import { getCurrentPositionAsync } from 'expo-location';
-// import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import {
   Container,
   Header,
@@ -72,7 +72,7 @@ const Delivery: React.FC = () => {
   return (
     <Container>
       <Header>
-        <ContainerIcon onPress={() => navigation.goBack()}>
+        {/* <ContainerIcon onPress={() => navigation.goBack()}>
           <Icon name="chevron-left" size={24} color="#bdbdbd"/>
         </ContainerIcon>
           
@@ -82,29 +82,25 @@ const Delivery: React.FC = () => {
           value={inputLocationValue}
           onTouchStart={toggleModalSearch}
           style={{ outline: 'none' }}
-        />
+        /> */}
 
-        {/* <GooglePlacesAutocomplete
+        <GooglePlacesAutocomplete
           placeholder="Pesquise sua área..."
           onPress={() => {}}
           query={{
-            key: 'AIzaSyAPm1nItKtdfuFFcnfePxxxM1p5UyUIbR4',
+            key: 'AIzaSyAbOOzscqbdchNmuNsgdKPg6Y5nqBzMfdc',
             language: 'pt-BR'
           }}
           textInputProps={{
             autoCapitalize: 'none',
             autoCorrect: false
           }}
-          requestUrl={{
-            useOnPlatform: 'all',
-            url: 'https://maps.googleapis.com/maps/api'
-          }}
           fetchDetails
           enablePoweredByContainer={false}
-        /> */}
+        />
         <Icon name="search" size={24} color="#bdbdbd" />
       </Header>
-      {isOpenModalSearch && (
+      {/* {isOpenModalSearch && (
           <ModalSearch >
             {locationsFiltered.map((location) => (
               <ButtonSelectLocation onPress={() => handleSetCurrentLocation({
@@ -123,7 +119,7 @@ const Delivery: React.FC = () => {
               </ButtonSelectLocation>
             ))}
           </ModalSearch>
-        )}
+        )} */}
 
       <ContainerCurrentPosition onPress={handleGetCurrentPosition}>
         <Icon name="map-pin" size={13} color="turquoise"/>

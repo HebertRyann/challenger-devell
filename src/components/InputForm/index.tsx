@@ -11,19 +11,20 @@ interface InputFormProps extends TextInputProps{
   name: string;
 }
 
-const InputForm: React.FC<InputFormProps> = ({ control, name, ...rest }) => {
+const InputForm: React.FC<InputFormProps> = ({ defaultValue, control, name, ...rest }) => {
   return (
     <Container >
       <Controller 
         control={control}
         name={name}
+        defaultValue={defaultValue}
         render={({ field: { onChange, onBlur, value }}) => (
           <Input 
             onChange={onChange}
             onBlur={onBlur}
             value={value}
-            secureTextEntry={name === 'password'}
-            {...rest} 
+            {...rest}
+            secureTextEntry={name === 'password'} 
           />
         )}
         

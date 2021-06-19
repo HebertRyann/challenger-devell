@@ -6,10 +6,10 @@ interface IconProps {
   isSelected: boolean;
 }
 
-export const Container = styled.View`
+export const Container = styled.ScrollView`
   flex: 1;
-  background: #f5f6f7;
-
+  overflow: auto;
+  background: #f8f9fa;
 `;
 
 export const Header = styled.View`
@@ -20,6 +20,7 @@ export const Header = styled.View`
   box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
   padding-left: 20px;
   padding-right: 10px;
+  background: #fff;
 `;
 
 export const Title = styled.View`
@@ -48,13 +49,16 @@ export const ContainerInput = styled.View`
   margin-top: 32px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 50px;
+  background: #fff;
 `;
 
 export const Input = styled.TextInput`
   flex: 1;
   height: 100%;
-  font-size: 1.1rem;
-  font-weight: 500;
+  font-size: 13px;
+  color: #ababab;
+  font-family: 'Roboto_500Medium';
 `;
 
 export const ContainerIcon = styled(BorderlessButton)``;
@@ -63,13 +67,13 @@ export const Icon = styled(Feather)`
 `;
 
 export const ContainerResults = styled.View`
-  position: sticky;
+
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 44px 0;
   border: 1px #eee;
   height: 88px;
+  background: #f8f9fa;
 `;
 
 export const HeaderResults = styled.View`
@@ -110,7 +114,6 @@ export const Suggestion = styled.View`
 `;
 
 export const ContainerRestaurants = styled.View`
-  flex: 1;
   padding-left: 15px;
   margin-bottom: 60px;
 `;
@@ -173,9 +176,10 @@ export const TitleSuggestion = styled.View`
 `;
 
 export const WrapperContainerResults = styled.View`
-  background: #fff;
+
   padding-top: 30px;
-  height: 80%;
+  margin-top: 50px;
+  background: #fff;
 `;
 
 export const ContentDetails = styled.View`

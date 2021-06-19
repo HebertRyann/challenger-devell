@@ -12,7 +12,9 @@ const { Navigator, Screen }  = createBottomTabNavigator();
 
 const TabRoutes: React.FC = () => {
   return (
-    <Navigator initialRouteName="início">
+    <Navigator initialRouteName="início" tabBarOptions={{
+      activeTintColor: '#fc8019'
+    }}>
       <Screen  name="início"       component={() => (
         <NavigationRegister>
           <Dashboard/>
@@ -49,7 +51,22 @@ const TabRoutes: React.FC = () => {
         </NavigationRegister>
       )} 
       options={{
-        tabBarIcon: () => <Feather name="shopping-bag" size={20}/> 
+        tabBarIcon: () => (<>
+          <span 
+          style={{ 
+            position: 'absolute',
+            top: 0,
+            right: -2,
+            borderRadius: '100%', 
+            background: '#3bbdb4', 
+            height: 16, 
+            width: 16,
+            textAlign: 'center',
+            fontSize: 10,
+            color: '#fff'            
+            }}>0</span>
+          <Feather name="shopping-bag" size={20}/>
+        </>) 
       }}/>
       <Screen 
       name="Conta" 

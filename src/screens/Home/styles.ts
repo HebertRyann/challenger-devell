@@ -3,19 +3,24 @@ import styled from 'styled-components/native';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
+  justify-content: space-between;
   align-items: center;
+  background-image: url("https://images.unsplash.com/photo-1511910849309-0dffb8785146?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80");
 `;
 
 export const TitlePage = styled.Text`
   font-size: 4rem;
-  margin-top: 164px;
-  margin-bottom: 146px;
   font-family: 'Roboto_400Regular';
+  margin-top: 80px;
+  color: #fff;
 `;
 
 export const WrapperContent = styled.View`
   align-items: center;
-  margin-bottom: 64px;
+  background: #fff;
+  width: 100%;
+  height: 55%;
+  padding-top: 80px;
 `;
 
 export const Title = styled.Text`

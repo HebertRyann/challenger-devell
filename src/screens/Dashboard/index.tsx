@@ -2,6 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import { ScrollView, FlatList, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
+
 import {
   Container,
   Header,
@@ -60,7 +62,9 @@ const Dashboard: React.FC = () => {
     { id: '20', name: 'Meet Burguer'},
   ]
   return (  
-    <Container>
+    <Container
+      stickyHeaderIndices={[0,2]}
+    >
       <Header>
         <Title>
           Commis
@@ -82,23 +86,22 @@ const Dashboard: React.FC = () => {
         
       </Header>
 
-      <ContainerInput >
+      <ContainerInput onTouchStart={() => navigation.navigate('Explorar')}>
         <Input placeholder="Pesquisar restaurantes e itens..." />
-        <Icon name="search" size={16}/>
+        <Icon name="search" size={16} color="#ababab" />
       </ContainerInput>
 
       <ContainerResults>
         <TitleResult>NÃO HÀ RESTAURANTES DISPONIVEIS</TitleResult>
         <HeaderResults>
           <ButtonResults
-          onTouchStart={() => toggleSelected('buttonResult1')}
-          style={{
-            borderBottomColor: isSelected === 'buttonResult1' ? '#3bbdb4' : '#f5f5f5',
-            borderBottomWidth: 3,
-            marginRight: 16,
-            backgroundColor: isSelected === 'buttonResult1' ? '#fff' : '#f5f5f5'
-          }}
-          
+            onTouchStart={() => toggleSelected('buttonResult1')}
+            style={{
+              borderBottomColor: isSelected === 'buttonResult1' ? '#3bbdb4' : '#f5f5f5',
+              borderBottomWidth: 3,
+              marginRight: 16,
+              backgroundColor: isSelected === 'buttonResult1' ? '#fff' : '#f5f5f5'
+            }}
           >
             <TextButtonResult
               style={{ marginRight: 5}}
@@ -146,23 +149,20 @@ const Dashboard: React.FC = () => {
             data={foods}
             horizontal
             showsHorizontalScrollIndicator={false}
+            keyExtractor={item => item.id.toString()}
             renderItem={({ item }) => (
-              <Suggestion onTouchStart={handleOpenModal}>
+              <Suggestion onTouchStart={() => {}}>
               <ImageBackfround />
               <TitleSuggestion>{item.name}</TitleSuggestion>
             </Suggestion>
             )}
-            keyExtractor={item => item.id.toString()}
+            
           />
         </ContainerSuggestions>
 
           <ContainerRestaurants>
-            <FlatList
-              data={restaurants}
-              showsVerticalScrollIndicator={false}
-              keyExtractor={item => item.id}
-              renderItem={({item}) => (
-                <Restaurant>
+              {foods.map(item => (
+                  <Restaurant key={item.id} style={{ height: 80, width: 80}}>
                   <ImageBackfround/>
                   <ContentDetails>
                     <TitleFood>
@@ -170,9 +170,9 @@ const Dashboard: React.FC = () => {
                     </TitleFood>
                     <TextPrice>O melhor restaurante de todo brasil</TextPrice>
                   </ContentDetails>
-                  </Restaurant>
-              )}
-            />
+                </Restaurant>
+                
+              ))}
           </ContainerRestaurants>
 
         </WrapperContainerResults>

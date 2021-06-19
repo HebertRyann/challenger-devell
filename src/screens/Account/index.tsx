@@ -27,6 +27,7 @@ import {
   ContainerAlign,
   ContainerIcon,
   ContainerSelectLanguage,
+  IconSl,
 } from './styles';
 
 const Account: React.FC = () => {
@@ -80,6 +81,7 @@ const Account: React.FC = () => {
   async function handleLogout() {
     try {
       await AsyncStorage.removeItem('@Commis:SignUp');
+      navigation.navigate('home')
     } catch (error) {
       console.log(error)
     }
@@ -97,7 +99,8 @@ const Account: React.FC = () => {
         </ContentProfile>
 
         <ImageBackground 
-          source="https://png2.cleanpng.com/sh/dcb9b8196a0e5269b90359cc04015e1b/L0KzQYm3VsI2N6F8iJH0aYP2gLBuTfNwdaF6jNd7LXnmf7B6TfF3aaVmip9rdYPsfrb6k71kd551jeZucj32f7f7lBFzbV56i9d7LXH5ccXokr02amQ1UalvY3TpRrW7Ub42OWc4T6o7NEG4QoqCUcEzQWMASac7LoDxd1==/kisspng-computer-icons-avatar-business-computer-software-user-avatar-5b3097fcdf6d41.5163782415299112929152.png"
+          onTouchStart={() => navigation.navigate('selectavatar')}
+          source={user.avatarLink || "https://png2.cleanpng.com/sh/dcb9b8196a0e5269b90359cc04015e1b/L0KzQYm3VsI2N6F8iJH0aYP2gLBuTfNwdaF6jNd7LXnmf7B6TfF3aaVmip9rdYPsfrb6k71kd551jeZucj32f7f7lBFzbV56i9d7LXH5ccXokr02amQ1UalvY3TpRrW7Ub42OWc4T6o7NEG4QoqCUcEzQWMASac7LoDxd1==/kisspng-computer-icons-avatar-business-computer-software-user-avatar-5b3097fcdf6d41.5163782415299112929152.png"}
         />
 
       </ContainerProfile>
@@ -124,20 +127,26 @@ const Account: React.FC = () => {
         </HeaderMyAccount>
 
         <ModalMyAccount>
-            <ContainerOptions style={{ borderBottomColor: '#e3e3e3', borderBottomWidth: 1 }}>
+            <ContainerOptions 
+            style={{ 
+              borderBottomColor: '#e3e3e3',
+             borderBottomWidth: 1 
+            }}
+            onTouchStart={() => navigation.navigate('alert')}
+            >
               <ContainerAlign >
                 <IconFe name="bell" size={13} />
                 <TitleOptions>Alertas</TitleOptions>
               </ContainerAlign>
 
-              <ContainerIcon onPress={() => navigation.navigate('alert')}>
+              <ContainerIcon >
                 <IconFe name="chevron-right" size={24} />
               </ContainerIcon>              
             </ContainerOptions>
 
-            <ContainerOptions style={{ borderBottomColor: '#e3e3e3', borderBottomWidth: 1 }}>
+            <ContainerOptions onTouchStart={() => navigation.navigate('edit')} style={{ borderBottomColor: '#e3e3e3', borderBottomWidth: 1 }}>
               <ContainerAlign >
-                <IconFe name="bell"/>
+                <IconFe name="user"/>
                 <TitleOptions>Editar perfil</TitleOptions>
               </ContainerAlign>
               <ContainerIcon onPress={() => navigation.navigate('edit')}>
@@ -145,9 +154,9 @@ const Account: React.FC = () => {
               </ContainerIcon> 
             </ContainerOptions>
 
-            <ContainerOptions style={{ borderBottomColor: '#e3e3e3', borderBottomWidth: 1 }}>
+            <ContainerOptions onTouchStart={() => navigation.navigate('address')} style={{ borderBottomColor: '#e3e3e3', borderBottomWidth: 1 }}>
               <ContainerAlign >
-                <IconFe name="bell"/>
+                <IconFe name="home"/>
                 <TitleOptions>Gerenciar endereços</TitleOptions>
               </ContainerAlign>
               <ContainerIcon onPress={() => navigation.navigate('address')}>
@@ -155,9 +164,9 @@ const Account: React.FC = () => {
               </ContainerIcon> 
             </ContainerOptions>
 
-            <ContainerOptions style={{ borderBottomColor: '#e3e3e3', borderBottomWidth: 1 }}>
+            <ContainerOptions onTouchStart={() => navigation.navigate('order')} style={{ borderBottomColor: '#e3e3e3', borderBottomWidth: 1 }}>
               <ContainerAlign>
-                <IconFe name="bell"/>
+                <IconFe name="shopping-cart"/>
                 <TitleOptions>Meus pedidos</TitleOptions>
               </ContainerAlign>
               <ContainerIcon onPress={() => navigation.navigate('order')}>
@@ -165,9 +174,9 @@ const Account: React.FC = () => {
               </ContainerIcon> 
             </ContainerOptions>
             
-            <ContainerOptions style={{ borderBottomColor: '#e3e3e3', borderBottomWidth: 1 }}>
+            <ContainerOptions onTouchStart={() => navigation.navigate('wallet')} style={{ borderBottomColor: '#e3e3e3', borderBottomWidth: 1 }}>
               <ContainerAlign >
-                <IconFe name="bell"/>
+                <IconSl name="wallet"/>
                 <TitleOptions>Minha carteira</TitleOptions>
               </ContainerAlign>
               <ContainerIcon onPress={() => navigation.navigate('wallet')}>
@@ -175,9 +184,9 @@ const Account: React.FC = () => {
               </ContainerIcon> 
             </ContainerOptions>
 
-            <ContainerOptions style={{ borderBottomColor: '#e3e3e3', borderBottomWidth: 1 }}>
+            <ContainerOptions onTouchStart={() => navigation.navigate('payment')} style={{ borderBottomColor: '#e3e3e3', borderBottomWidth: 1 }}>
               <ContainerAlign >
-                <IconFe name="bell"/>
+                <IconFe name="credit-card"/>
                 <TitleOptions>Formas de pagamento</TitleOptions>
               </ContainerAlign>
               <ContainerIcon onPress={() => navigation.navigate('payment')}>
@@ -201,7 +210,7 @@ const Account: React.FC = () => {
         </HeaderMyAccount>
 
         <Animated.View style={[styles.container, animationStylesHelp]}>
-          <ContainerOptions>
+          <ContainerOptions onTouchStart={handleLogout}>
             <TitleOptions style={{ color: '#f44336', fontFamily: 'Roboto_500Medium'}}>Sair</TitleOptions>
             <ContainerIcon style={{ marginRight: 10}} onPress={handleLogout}>
               <IconFe name="power" size={15} color="#f44336"/>

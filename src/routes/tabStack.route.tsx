@@ -13,6 +13,8 @@ import { Explore } from "../screens/Explore";
 import { Cart } from "../screens/Cart";
 import { TabRoutes } from "./tab.routes";
 import { Delivery } from "../screens/Delivery";
+import { SearchModal } from "../components/SearchModal";
+import { Home } from "../screens/Home";
 
 const { Navigator, Screen }  = createStackNavigator();
 
@@ -31,6 +33,8 @@ const TabStack: React.FC = () => {
       <Screen name="address" component={ManageAddress} />
       <Screen name="addPayment" component={NewPayment} />
       <Screen name="delivery" component={Delivery} />
+      <Screen name="selectavatar" component={SearchModal} />
+      <Screen name="home" component={Home} />
 
     </Navigator>
   )
