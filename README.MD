@@ -11,7 +11,7 @@
 
 
 # with your manager package you can typing somethings how:
-### "yarn web" or "expo web":
+### "yarn web" or "expo web" :
 #### open project in web
 
 ### "yarn android" : 
