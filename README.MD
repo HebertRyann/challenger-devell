@@ -8,7 +8,7 @@
 ### npm install 
 ### this command are make install all dependencies when nescessary after that.
 ### with your manager package you cna typing somethings how:
-## yarn web or expo web for open project in web
+## --yarn web or expo web for open project in web
 ## yarn android for open in android emulator
 ## yarn ios for open ios emulator
 ### Thank you.
