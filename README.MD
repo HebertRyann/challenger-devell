@@ -7,7 +7,7 @@
 ##### or
 ### npm install 
 ### this command are make install all dependencies when nescessary after that,
-### with your manage package "yarn start" or "npm start" and wait for magic.
+### with your manage package "yarn web" with this you see my project in web but you can also in you operation system tiping yarn [you operation system] and wait for magic.
 ### Thank you.
 
 ### any feedback give are welcome and help me for gain more xperience and improve
