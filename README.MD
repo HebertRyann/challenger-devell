@@ -12,13 +12,13 @@
 
 # with your manager package you can typing somethings how:
 ### "yarn web" or "expo web":
-#### for open project in web
+#### open project in web
 
-### "yarn android" 
-#### for open in android emulator
+### "yarn android" : 
+#### open in android emulator
 
-### "yarn ios"
-#### for open ios emulator
+### "yarn ios" :
+#### open ios emulator
 
 ###### Thank you.
 ###### any feedback give are welcome and help me for gain more xperience and improve
