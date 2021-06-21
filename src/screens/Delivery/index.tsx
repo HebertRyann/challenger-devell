@@ -88,7 +88,7 @@ const Delivery: React.FC = () => {
           placeholder="Pesquise sua área..."
           onPress={() => {}}
           query={{
-            key: 'AIzaSyAbOOzscqbdchNmuNsgdKPg6Y5nqBzMfdc',
+            key: process.env.API_KEY_GOOGLE,
             language: 'pt-BR'
           }}
           textInputProps={{
