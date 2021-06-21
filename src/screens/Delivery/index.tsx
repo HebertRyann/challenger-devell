@@ -130,9 +130,9 @@ const Delivery: React.FC = () => {
         <TitlePopularPlace>Locais populares</TitlePopularPlace>
       </ContainerPopularPlace>
       
-      {location.longitude !== 0 && (
+      {/* {location.longitude !== 0 && (
         <MapView
-          style={stylesMap.map}
+          style={{ flex: 1 }}
           initialRegion={{
             latitude: 37.78825,
             longitude: -122.4324,
@@ -142,7 +142,7 @@ const Delivery: React.FC = () => {
           showsUserLocation
           loadingEnabled
         />
-      )}
+      )} */}
     </Container>
   )
 };
